@@ -1,0 +1,16 @@
+H:\Git_Code\DD\DD_WeiXinApi\WeiXinApi\MvcExtension\bin\Debug\MvcExtension.dll
+H:\Git_Code\DD\DD_WeiXinApi\WeiXinApi\MvcExtension\bin\Debug\Senparc.Weixin.dll
+H:\Git_Code\DD\DD_WeiXinApi\WeiXinApi\MvcExtension\obj\Debug\MvcExtension.dll
+H:\Git_Code\DD\DD_WeiXinApi\WeiXinApi\MvcExtension\obj\Debug\MvcExtension.pdb
+H:\Git_Code\DD\DD_WeiXinApi\WeiXinApi\MvcExtension\obj\Debug\MvcExtension.csprojResolveAssemblyReference.cache
+D:\weixinDevelop\DD_WeiXinApi\DD_WeiXinApi\WeiXinApi\MvcExtension\bin\Debug\MvcExtension.dll
+D:\weixinDevelop\DD_WeiXinApi\DD_WeiXinApi\WeiXinApi\MvcExtension\bin\Debug\MvcExtension.pdb
+D:\weixinDevelop\DD_WeiXinApi\DD_WeiXinApi\WeiXinApi\MvcExtension\bin\Debug\Senparc.Weixin.dll
+D:\weixinDevelop\DD_WeiXinApi\DD_WeiXinApi\WeiXinApi\MvcExtension\obj\Debug\MvcExtension.dll
+D:\weixinDevelop\DD_WeiXinApi\DD_WeiXinApi\WeiXinApi\MvcExtension\obj\Debug\MvcExtension.pdb
+D:\weixinDevelop\DD_WeiXinApi\DD_WeiXinApi\WeiXinApi\MvcExtension\obj\Debug\MvcExtension.csprojResolveAssemblyReference.cache
+D:\文档\WexinExercise\WeiXinApi\MvcExtension\bin\Debug\MvcExtension.dll
+D:\文档\WexinExercise\WeiXinApi\MvcExtension\bin\Debug\MvcExtension.pdb
+D:\文档\WexinExercise\WeiXinApi\MvcExtension\bin\Debug\Senparc.Weixin.dll
+D:\文档\WexinExercise\WeiXinApi\MvcExtension\obj\Debug\MvcExtension.dll
+D:\文档\WexinExercise\WeiXinApi\MvcExtension\obj\Debug\MvcExtension.pdb

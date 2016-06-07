@@ -1,0 +1,13 @@
+H:\Git_Code\DD\DD_WeiXinApi\WeiXinApi\Model\bin\Debug\Model.dll
+H:\Git_Code\DD\DD_WeiXinApi\WeiXinApi\Model\bin\Debug\Model.pdb
+H:\Git_Code\DD\DD_WeiXinApi\WeiXinApi\Model\obj\Debug\Model.dll
+H:\Git_Code\DD\DD_WeiXinApi\WeiXinApi\Model\obj\Debug\Model.pdb
+D:\weixinDevelop\DD_WeiXinApi\DD_WeiXinApi\WeiXinApi\Model\bin\Debug\Model.dll
+D:\weixinDevelop\DD_WeiXinApi\DD_WeiXinApi\WeiXinApi\Model\bin\Debug\Model.pdb
+D:\weixinDevelop\DD_WeiXinApi\DD_WeiXinApi\WeiXinApi\Model\obj\Debug\Model.dll
+D:\weixinDevelop\DD_WeiXinApi\DD_WeiXinApi\WeiXinApi\Model\obj\Debug\Model.pdb
+D:\weixinDevelop\DD_WeiXinApi\DD_WeiXinApi\WeiXinApi\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+D:\文档\WexinExercise\WeiXinApi\Model\bin\Debug\Model.dll
+D:\文档\WexinExercise\WeiXinApi\Model\bin\Debug\Model.pdb
+D:\文档\WexinExercise\WeiXinApi\Model\obj\Debug\Model.dll
+D:\文档\WexinExercise\WeiXinApi\Model\obj\Debug\Model.pdb

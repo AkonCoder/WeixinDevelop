@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Web.Configuration;
+using CommonLib;
 using Senparc.Weixin.MP.Entities;
 using Senparc.Weixin.MP.Entities.Request;
 using Senparc.Weixin.MP.MessageHandlers;
@@ -21,11 +23,11 @@ namespace CommonService.CustomMessageHandler
 
 
 #if DEBUG
-        string agentUrl = "http://localhost:12222/App/Weixin/4";
-        string agentToken = "27C455F496044A87";
-        string wiweihiKey = "CNadjJuWzyX5bz5Gn+/XoyqiqMa5DjXQ";
+        private string agentUrl = "http://localhost:12222/App/Weixin/4";
+        private string agentToken = "27C455F496044A87";
+        private string wiweihiKey = "CNadjJuWzyX5bz5Gn+/XoyqiqMa5DjXQ";
 #else
-        //下面的Url和Token可以用其他平台的消息，或者到www.weiweihi.com注册微信用户，将自动在“微信营销工具”下得到
+    //下面的Url和Token可以用其他平台的消息，或者到www.weiweihi.com注册微信用户，将自动在“微信营销工具”下得到
         private string agentUrl = WebConfigurationManager.AppSettings["WeixinAgentUrl"]; //这里使用了www.weiweihi.com微信自动托管平台
         private string agentToken = WebConfigurationManager.AppSettings["WeixinAgentToken"]; //Token
 
@@ -49,15 +51,15 @@ namespace CommonService.CustomMessageHandler
                 CurrentMessageContext.StorageData = 0;
             }
 
-            var blackUserOpenId = "oHow7xBPWRBwb_-4hPvjMQX8KO-E";
-            //在执行后续的请求之前处理相关逻辑，例如可以阻止黑名单用户的后续请求
-            if (RequestMessage.FromUserName== blackUserOpenId)
-            {
-                CancelExcute = true;
-                var responseMessage = CreateResponseMessage<ResponseMessageText>();
-                responseMessage.Content = "你已经被拉黑啦,hahhahah！";
-                ResponseMessage = responseMessage;
-            }
+            //var blackUserOpenId = "oHow7xBPWRBwb_-4hPvjMQX8KO-E";
+            ////在执行后续的请求之前处理相关逻辑，例如可以阻止黑名单用户的后续请求
+            //if (RequestMessage.FromUserName== blackUserOpenId)
+            //{
+            //    CancelExcute = true;
+            //    var responseMessage = CreateResponseMessage<ResponseMessageText>();
+            //    responseMessage.Content = "你已经被拉黑啦,hahhahah！";
+            //    ResponseMessage = responseMessage;
+            //}
 
             base.OnExecuting();
         }
@@ -89,8 +91,13 @@ namespace CommonService.CustomMessageHandler
 
             //方法四（v0.6+），仅适合在HandlerMessage内部使用，本质上是对方法三的封装
             //注意：下面泛型ResponseMessageText即返回给客户端的类型，可以根据自己的需要填写ResponseMessageNews等不同类型。
+
             var responseMessage = base.CreateResponseMessage<ResponseMessageText>();
-            responseMessage.Content = requestMessage.Content.ToString().ToLower() == "bd" ? requestMessage.FromUserName : "河妖用大招";
+
+            //1.获取天气预报
+            var weatherAddress = String.Format("http://op.juhe.cn/onebox/weather/query?cityname={0}&dtype=“json”&key=e8a21b15c21dca288459135283295192",requestMessage.Content.ToString());
+            var weatherResult = CommonLib.Helper.SendHttpGet(weatherAddress, null);
+            responseMessage.Content = weatherResult.ToString();
             return responseMessage;
         }
 
@@ -164,7 +171,7 @@ namespace CommonService.CustomMessageHandler
         public override IResponseMessageBase OnEventRequest(IRequestMessageEventBase requestMessage)
         {
             var eventResponseMessage = base.OnEventRequest(requestMessage);
-                //对于Event下属分类的重写方法，见：CustomerMessageHandler_Events.cs
+            //对于Event下属分类的重写方法，见：CustomerMessageHandler_Events.cs
             //TODO: 对Event信息进行统一操作
             return eventResponseMessage;
         }

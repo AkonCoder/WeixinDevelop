@@ -39,7 +39,7 @@ namespace CommonService
             //    PicUrl = "http://weixin.senparc.com/images/logo.jpg",
             //    Url = "http://weixin.senparc.com"
             //});
-            responseMessage.Articles.Add(new Article() { Description = "您的位置暴露了" });
+            responseMessage.Articles.Add(new Article() { Description = "wifi就在你周围，搜一下就出来" });
             return responseMessage;
         }
     }

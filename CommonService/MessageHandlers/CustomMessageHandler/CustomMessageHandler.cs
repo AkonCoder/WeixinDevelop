@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Web.Configuration;
 using CommonLib;
@@ -119,7 +120,8 @@ namespace CommonService.CustomMessageHandler
             var info = weatherResult["result"]["data"]["realtime"]["weather"]["info"]; //天气
             var temperature = weatherResult["result"]["data"]["realtime"]["weather"]["temperature"]; //温度
             var sportSuggestion = weatherResult["result"]["data"]["life"]["info"]["yundong"]; //运动
-            var result = string.Format("当前城市：{0},今天的天气温度为：{1}度,湿度{2},天气{3},运动建议：{4}", cityName, temperature, humidity, info,
+            var result = string.Format("当前城市：{0},今天的天气温度为：{1}度,湿度{2},天气{3},运动建议：{4}", cityName, temperature, humidity,
+                info,
                 sportSuggestion);
             responseMessage.Content = result;
         }
@@ -133,7 +135,51 @@ namespace CommonService.CustomMessageHandler
         {
             var locationService = new LocationService();
             var responseMessage = locationService.GetResponseMessage(requestMessage as RequestMessageLocation);
+           // var wifiAddressList = GetFreeWifiAddress(requestMessage, responseMessage);
+            responseMessage.Articles.Add(new Article()
+            {
+                Title = "免费Wifi地点",
+                Description = "地图",
+                PicUrl = "http://img-cdn.hopetrip.com.hk/2015/0117/20150117092654239.jpg",
+                Url = "http://tools.juhe.cn/map/map_lng.html"
+            });
             return responseMessage;
+        }
+
+        /// <summary>
+        /// 获取当前位置范围内3km以内的免费Wifi
+        /// </summary>
+        /// <param name="requestMessage"></param>
+        /// <param name="responseMessage"></param>
+        private static string GetFreeWifiAddress(RequestMessageLocation requestMessage, ResponseMessageNews responseMessage)
+        {
+            var locationX = requestMessage.Location_X.ToString(CultureInfo.InvariantCulture);
+            var locationY = requestMessage.Location_Y.ToString(CultureInfo.InvariantCulture);
+            var wifiRequestAddress = System.Configuration.ConfigurationManager.AppSettings["wifiApiAddress"].ToString();
+            var dic = new Dictionary<string, string>
+            {
+                {"lon", locationX},
+                {"lat", locationY},
+                {"gtype", "2"},
+                {"r", "3000"},
+                {"dtype", "json"},
+                {"key", "2ffa1edcc61d3096aef7e5d56a1d1036"}
+            };
+            var wifiResult = CommonLib.Helper.JsonDeserializeObjectWithNS(Helper.SendHttpGet(wifiRequestAddress, dic));
+            var wifiAddressList = string.Empty;
+            if (wifiResult["reason"].ToString() != "EMPTY!")
+            {
+                var addressList = wifiResult["result"]["data"];
+                for (int i = 0; i < 5; i++)
+                {
+                    wifiAddressList += addressList[i]["name"] + " <br/>;";
+                }
+            }
+            else
+            {
+                wifiAddressList = "当前位置周围没有搜索到免费Wifi";
+            }
+            return wifiAddressList;
         }
 
         /// <summary>
@@ -144,6 +190,7 @@ namespace CommonService.CustomMessageHandler
         public override IResponseMessageBase OnImageRequest(RequestMessageImage requestMessage)
         {
             var responseMessage = CreateResponseMessage<ResponseMessageNews>();
+
             responseMessage.Articles.Add(new Article()
             {
                 Description = "无法识别您发送的图片",

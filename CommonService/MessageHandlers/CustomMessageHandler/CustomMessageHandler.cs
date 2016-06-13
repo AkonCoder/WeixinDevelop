@@ -94,13 +94,35 @@ namespace CommonService.CustomMessageHandler
 
             var responseMessage = base.CreateResponseMessage<ResponseMessageText>();
 
-            //1.获取天气预报
-            var weatherAddress = String.Format("http://op.juhe.cn/onebox/weather/query?cityname={0}&dtype=“json”&key=e8a21b15c21dca288459135283295192",requestMessage.Content.ToString());
-            var weatherResult = CommonLib.Helper.SendHttpGet(weatherAddress, null);
-            responseMessage.Content = weatherResult.ToString();
+            GetWeatherForeast(requestMessage, responseMessage);
             return responseMessage;
         }
 
+        /// <summary>
+        /// 获取天气预报信息
+        /// </summary>
+        /// <param name="requestMessage"></param>
+        /// <param name="responseMessage"></param>
+        private static void GetWeatherForeast(RequestMessageText requestMessage, ResponseMessageText responseMessage)
+        {
+            //1.获取天气预报
+            var weatherAddress = System.Configuration.ConfigurationManager.AppSettings["weatherApiAddress"].ToString();
+            var dic = new Dictionary<string, string>
+            {
+                {"cityname", requestMessage.Content.ToString()},
+                {"dtype", "json"},
+                {"key", "e8a21b15c21dca288459135283295192"}
+            };
+            var weatherResult = CommonLib.Helper.JsonDeserializeObjectWithNS(Helper.SendHttpGet(weatherAddress, dic));
+            var cityName = weatherResult["result"]["data"]["realtime"]["city_name"]; //当前城市
+            var humidity = weatherResult["result"]["data"]["realtime"]["weather"]["humidity"]; //湿度
+            var info = weatherResult["result"]["data"]["realtime"]["weather"]["info"]; //天气
+            var temperature = weatherResult["result"]["data"]["realtime"]["weather"]["temperature"]; //温度
+            var sportSuggestion = weatherResult["result"]["data"]["life"]["info"]["yundong"]; //运动
+            var result = string.Format("当前城市：{0},今天的天气温度为：{1}度,湿度{2},天气{3},运动建议：{4}", cityName, temperature, humidity, info,
+                sportSuggestion);
+            responseMessage.Content = result;
+        }
 
         /// <summary>
         /// 处理位置请求
@@ -114,6 +136,8 @@ namespace CommonService.CustomMessageHandler
             return responseMessage;
         }
 
+        /// <summary>
+        /// 处理图片请求
         /// </summary>
         /// <param name="requestMessage"></param>
         /// <returns></returns>

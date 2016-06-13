@@ -6,6 +6,7 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json.Linq;
 
 namespace CommonLib
 {
@@ -500,6 +501,23 @@ namespace CommonLib
         {
             Random random = new Random();
             return Math.Round(random.NextDouble() * (maximum - minimum) + minimum, len);
-        } 
+        }
+
+        /// <summary>
+        /// 通过Newtonsoft,反序列化Json为JObject对象
+        /// </summary>
+        /// <param name="strJson"></param>
+        /// <returns></returns>
+        public static JObject JsonDeserializeObjectWithNS(string strJson)
+        {
+            var jObject = new JObject();
+            //判断是否为json字符串，是则进行转换
+            if (strJson.IndexOf('{') == -1 || string.IsNullOrWhiteSpace(strJson))
+            {
+                return jObject;
+            }
+            jObject = (JObject)Newtonsoft.Json.JsonConvert.DeserializeObject(strJson);
+            return jObject;
+        }
     }
 }

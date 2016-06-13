@@ -3,8 +3,9 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using I200_Quartz.Helpers;
 
-namespace I200_Quartz.Helpers
+namespace CommonLib
 {
     /// <summary>
     /// 主站信息

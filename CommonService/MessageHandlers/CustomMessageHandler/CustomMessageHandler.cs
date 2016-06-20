@@ -193,7 +193,10 @@ namespace CommonService.CustomMessageHandler
 
             responseMessage.Articles.Add(new Article()
             {
-                Description = "无法识别您发送的图片",
+                Description = "你的图片好牛逼！赠送给你一张别的！",
+                Title="图片请求",
+                Url = "http://www.sj88.com/attachments/201412/21/14/4939o2rti.jpg",
+                PicUrl = "http://www.sj88.com/attachments/201412/21/14/4939o2rti.jpg"
             });
             return responseMessage;
         }
@@ -207,6 +210,8 @@ namespace CommonService.CustomMessageHandler
         {
             var responseMessage = CreateResponseMessage<ResponseMessageMusic>();
             responseMessage.Music.Description = "您的声音太优美了，小编都醉了";
+            responseMessage.Music.MusicUrl = "http://music.163.com/#/m/song?id=109196&userid=14220464";
+            responseMessage.Music.Title = "送你一首歌曲！";
             return responseMessage;
         }
 
@@ -229,8 +234,14 @@ namespace CommonService.CustomMessageHandler
         /// <returns></returns>
         public override IResponseMessageBase OnLinkRequest(RequestMessageLink requestMessage)
         {
-            var responseMessage = ResponseMessageBase.CreateFromRequestMessage<ResponseMessageText>(requestMessage);
-            responseMessage.Content = "莫愁不开怀";
+            var responseMessage = ResponseMessageBase.CreateFromRequestMessage<ResponseMessageNews>(requestMessage);
+               responseMessage.Articles.Add(new Article()
+            {
+                Description = "莫愁不开怀！",
+                Title="链接请求",
+                Url = "http://www.cnblogs.com/liupeng61624/p/4354983.html",
+                PicUrl = "http://www.cnblogs.com/liupeng61624/p/4354983.html"
+            });
             return responseMessage;
         }
 

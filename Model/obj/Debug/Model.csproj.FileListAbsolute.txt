@@ -11,3 +11,7 @@ D:\文档\WexinExercise\WeiXinApi\Model\bin\Debug\Model.dll
 D:\文档\WexinExercise\WeiXinApi\Model\bin\Debug\Model.pdb
 D:\文档\WexinExercise\WeiXinApi\Model\obj\Debug\Model.dll
 D:\文档\WexinExercise\WeiXinApi\Model\obj\Debug\Model.pdb
+E:\gitCode\WeiXinDevelop\Model\bin\Debug\Model.dll
+E:\gitCode\WeiXinDevelop\Model\bin\Debug\Model.pdb
+E:\gitCode\WeiXinDevelop\Model\obj\Debug\Model.dll
+E:\gitCode\WeiXinDevelop\Model\obj\Debug\Model.pdb

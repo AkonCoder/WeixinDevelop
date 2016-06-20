@@ -28,3 +28,15 @@ D:\文档\WexinExercise\WeiXinApi\CommonLib\bin\Debug\Model.pdb
 D:\文档\WexinExercise\WeiXinApi\CommonLib\obj\Debug\CommonLib.csprojResolveAssemblyReference.cache
 D:\文档\WexinExercise\WeiXinApi\CommonLib\obj\Debug\CommonLib.dll
 D:\文档\WexinExercise\WeiXinApi\CommonLib\obj\Debug\CommonLib.pdb
+E:\gitCode\WeiXinDevelop\CommonLib\bin\Debug\CommonLib.dll
+E:\gitCode\WeiXinDevelop\CommonLib\bin\Debug\CommonLib.pdb
+E:\gitCode\WeiXinDevelop\CommonLib\bin\Debug\fastJSON.dll
+E:\gitCode\WeiXinDevelop\CommonLib\bin\Debug\log4net.dll
+E:\gitCode\WeiXinDevelop\CommonLib\bin\Debug\Model.dll
+E:\gitCode\WeiXinDevelop\CommonLib\bin\Debug\Newtonsoft.Json.dll
+E:\gitCode\WeiXinDevelop\CommonLib\bin\Debug\NPinyin.dll
+E:\gitCode\WeiXinDevelop\CommonLib\bin\Debug\Model.pdb
+E:\gitCode\WeiXinDevelop\CommonLib\bin\Debug\Newtonsoft.Json.xml
+E:\gitCode\WeiXinDevelop\CommonLib\obj\Debug\CommonLib.csprojResolveAssemblyReference.cache
+E:\gitCode\WeiXinDevelop\CommonLib\obj\Debug\CommonLib.dll
+E:\gitCode\WeiXinDevelop\CommonLib\obj\Debug\CommonLib.pdb

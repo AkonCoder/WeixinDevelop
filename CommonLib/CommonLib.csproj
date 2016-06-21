@@ -68,11 +68,6 @@
     <Compile Include="TemplateAssign.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\fastJSON.dll" />
-    <Content Include="bin\log4net.dll" />
-    <Content Include="bin\NPinyin.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{2beb78d3-0396-4fd8-818b-56199bf2d356}</Project>
       <Name>Model</Name>

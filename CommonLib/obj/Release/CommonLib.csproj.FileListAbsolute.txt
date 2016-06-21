@@ -38,3 +38,15 @@ E:\gitCode\WeiXinApi\CommonLib\bin\Release\Model.pdb
 E:\gitCode\WeiXinApi\CommonLib\obj\Release\CommonLib.csprojResolveAssemblyReference.cache
 E:\gitCode\WeiXinApi\CommonLib\obj\Release\CommonLib.dll
 E:\gitCode\WeiXinApi\CommonLib\obj\Release\CommonLib.pdb
+D:\文档\gitExerciseCode\WeixinDevelop\CommonLib\bin\Release\CommonLib.dll
+D:\文档\gitExerciseCode\WeixinDevelop\CommonLib\bin\Release\CommonLib.pdb
+D:\文档\gitExerciseCode\WeixinDevelop\CommonLib\bin\Release\fastJSON.dll
+D:\文档\gitExerciseCode\WeixinDevelop\CommonLib\bin\Release\log4net.dll
+D:\文档\gitExerciseCode\WeixinDevelop\CommonLib\bin\Release\Model.dll
+D:\文档\gitExerciseCode\WeixinDevelop\CommonLib\bin\Release\NPinyin.dll
+D:\文档\gitExerciseCode\WeixinDevelop\CommonLib\bin\Release\Model.pdb
+D:\文档\gitExerciseCode\WeixinDevelop\CommonLib\obj\Release\CommonLib.csprojResolveAssemblyReference.cache
+D:\文档\gitExerciseCode\WeixinDevelop\CommonLib\obj\Release\CommonLib.dll
+D:\文档\gitExerciseCode\WeixinDevelop\CommonLib\obj\Release\CommonLib.pdb
+D:\文档\gitExerciseCode\WeixinDevelop\CommonLib\bin\Release\Newtonsoft.Json.dll
+D:\文档\gitExerciseCode\WeixinDevelop\CommonLib\bin\Release\Newtonsoft.Json.xml

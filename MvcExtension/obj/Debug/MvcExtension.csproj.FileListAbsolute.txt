@@ -14,3 +14,8 @@ D:\文档\WexinExercise\WeiXinApi\MvcExtension\bin\Debug\MvcExtension.pdb
 D:\文档\WexinExercise\WeiXinApi\MvcExtension\bin\Debug\Senparc.Weixin.dll
 D:\文档\WexinExercise\WeiXinApi\MvcExtension\obj\Debug\MvcExtension.dll
 D:\文档\WexinExercise\WeiXinApi\MvcExtension\obj\Debug\MvcExtension.pdb
+D:\文档\gitExerciseCode\WeixinDevelop\MvcExtension\bin\Debug\MvcExtension.dll
+D:\文档\gitExerciseCode\WeixinDevelop\MvcExtension\bin\Debug\MvcExtension.pdb
+D:\文档\gitExerciseCode\WeixinDevelop\MvcExtension\bin\Debug\Senparc.Weixin.dll
+D:\文档\gitExerciseCode\WeixinDevelop\MvcExtension\obj\Debug\MvcExtension.dll
+D:\文档\gitExerciseCode\WeixinDevelop\MvcExtension\obj\Debug\MvcExtension.pdb

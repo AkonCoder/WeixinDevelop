@@ -23,7 +23,7 @@ namespace CommonService.CustomMessageHandler
     {
         private string GetWelcomeInfo()
         {
-            return "欢迎关注上海圆贝管理平台，如果您是员工请联系工作人员";
+            return "欢迎关注我的账号！";
         }
 
         public override IResponseMessageBase OnTextOrEventRequest(RequestMessageText requestMessage)

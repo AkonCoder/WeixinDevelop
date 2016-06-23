@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Linq;
-using System.Web;
-using Senparc.Weixin.MP.Agent;
-using Senparc.Weixin.Context;
-using Senparc.Weixin.MP.Entities;
-using Senparc.Weixin.MP.Helpers;
-using Senparc.Weixin.MP.MessageHandlers;
 using System.Text;
 using CommonLib;
 using Model;
-using System.Collections.Generic;
-using System.IO;
-using I200_Quartz.Helpers;
+using Senparc.Weixin.MP.Entities;
 
 namespace CommonService.CustomMessageHandler
 {
@@ -80,7 +70,7 @@ namespace CommonService.CustomMessageHandler
                     reponseMessage = yesterdaystrongResponseMessage;
                     var yesterdaySalesStr = new StringBuilder();
                     var yesterdaySalesResult = Helper.JsonDeserializeObject<ApiModel.SalesInfo>(yesterdaySalesInfo);
-                    yesterdaySalesStr.Append(CommonLib.TemplateAssign.SalesInfo(yesterdaySalesResult,dateType));
+                    yesterdaySalesStr.Append(TemplateAssign.SalesInfo(yesterdaySalesResult,dateType));
                     yesterdaystrongResponseMessage.Articles.Add(new Article()
                     {
                         Title = "平台信息（昨日）",
@@ -100,7 +90,7 @@ namespace CommonService.CustomMessageHandler
                     var lastWeekSalesStr = new StringBuilder();
 
                     var lastWeekSalesResult = Helper.JsonDeserializeObject<ApiModel.SalesInfo>(lastWeekSalesInfo);
-                    lastWeekSalesStr.Append(CommonLib.TemplateAssign.SalesInfo(lastWeekSalesResult,dateType));
+                    lastWeekSalesStr.Append(TemplateAssign.SalesInfo(lastWeekSalesResult,dateType));
                     lastWeekstrongResponseMessage.Articles.Add(new Article()
                     {
                         Title = "平台信息（上周）",
@@ -120,7 +110,7 @@ namespace CommonService.CustomMessageHandler
                     reponseMessage = thisMonthstrongResponseMessage;
                     var thisMonthSalesStr = new StringBuilder();
                     var thisMonthSalesResult = Helper.JsonDeserializeObject<ApiModel.SalesInfo>(thisMonthSalesInfo);
-                    thisMonthSalesStr.Append(CommonLib.TemplateAssign.SalesInfo(thisMonthSalesResult,dateType));
+                    thisMonthSalesStr.Append(TemplateAssign.SalesInfo(thisMonthSalesResult,dateType));
                     thisMonthstrongResponseMessage.Articles.Add(new Article()
                     {
                         Title = "平台信息 (本月)",
@@ -138,7 +128,7 @@ namespace CommonService.CustomMessageHandler
                     reponseMessage = thisWeekstrongResponseMessage;
                     var thisWeekSalesStr = new StringBuilder();
                     var thisWeekSalesResult = Helper.JsonDeserializeObject<ApiModel.SalesInfo>(thisWeekSalesInfo);
-                    thisWeekSalesStr.Append(CommonLib.TemplateAssign.SalesInfo(thisWeekSalesResult,dateType));
+                    thisWeekSalesStr.Append(TemplateAssign.SalesInfo(thisWeekSalesResult,dateType));
                     thisWeekstrongResponseMessage.Articles.Add(new Article()
                     {
                         Title = "平台信息（本周）",

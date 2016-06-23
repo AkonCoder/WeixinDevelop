@@ -95,8 +95,9 @@ namespace CommonService.CustomMessageHandler
 
             var responseMessage = base.CreateResponseMessage<ResponseMessageText>();
 
-            GetWeatherForeast(requestMessage, responseMessage);
-            return responseMessage;
+            // GetWeatherForeast(requestMessage, responseMessage);
+            //return responseMessage;
+            return GetOauthAssign(requestMessage);
         }
 
         /// <summary>
@@ -135,7 +136,7 @@ namespace CommonService.CustomMessageHandler
         {
             var locationService = new LocationService();
             var responseMessage = locationService.GetResponseMessage(requestMessage as RequestMessageLocation);
-           // var wifiAddressList = GetFreeWifiAddress(requestMessage, responseMessage);
+            // var wifiAddressList = GetFreeWifiAddress(requestMessage, responseMessage);
             responseMessage.Articles.Add(new Article()
             {
                 Title = "免费Wifi地点",
@@ -151,7 +152,8 @@ namespace CommonService.CustomMessageHandler
         /// </summary>
         /// <param name="requestMessage"></param>
         /// <param name="responseMessage"></param>
-        private static string GetFreeWifiAddress(RequestMessageLocation requestMessage, ResponseMessageNews responseMessage)
+        private static string GetFreeWifiAddress(RequestMessageLocation requestMessage,
+            ResponseMessageNews responseMessage)
         {
             var locationX = requestMessage.Location_X.ToString(CultureInfo.InvariantCulture);
             var locationY = requestMessage.Location_Y.ToString(CultureInfo.InvariantCulture);
@@ -194,7 +196,7 @@ namespace CommonService.CustomMessageHandler
             responseMessage.Articles.Add(new Article()
             {
                 Description = "你的图片好牛逼！赠送给你一张别的！",
-                Title="图片请求",
+                Title = "图片请求",
                 Url = "http://www.sj88.com/attachments/201412/21/14/4939o2rti.jpg",
                 PicUrl = "http://www.sj88.com/attachments/201412/21/14/4939o2rti.jpg"
             });
@@ -235,13 +237,28 @@ namespace CommonService.CustomMessageHandler
         public override IResponseMessageBase OnLinkRequest(RequestMessageLink requestMessage)
         {
             var responseMessage = ResponseMessageBase.CreateFromRequestMessage<ResponseMessageNews>(requestMessage);
-               responseMessage.Articles.Add(new Article()
+            responseMessage.Articles.Add(new Article()
             {
                 Description = "莫愁不开怀！",
-                Title="链接请求",
+                Title = "链接请求",
                 Url = "http://www.cnblogs.com/liupeng61624/p/4354983.html",
                 PicUrl = "http://www.cnblogs.com/liupeng61624/p/4354983.html"
             });
+            return responseMessage;
+        }
+
+        private IResponseMessageBase GetOauthAssign(RequestMessageText requestMessage)
+        {
+            var responseMessage = CreateResponseMessage<ResponseMessageText>();
+            if (requestMessage.Content == "授权")
+            {
+                var myAppid = "wx043225275885dafd";
+                var redirectUri = "http://wx.4ugood.net/OAuthRedirectUri.aspx";
+                var url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + myAppid + "&redirect_uri=" +
+                          redirectUri + "&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+                var str = "<a href='" + url + "'>授权页面</a>";
+                responseMessage.Content = str.ToString();
+            }
             return responseMessage;
         }
 
